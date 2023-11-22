@@ -13,6 +13,9 @@
             <p>Published on: {{ post.publ_time }}</p>
 
             <a href="{% url 'update_post' post.id %}">Update</a>
+            <a href="{% url 'delete_post' post.id %}">Delete</a>
         {% endfor %}
+
+        <a href="{% url 'create_post' %}">Create New Post</a>
     </body>
 </html>
