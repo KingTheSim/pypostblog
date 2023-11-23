@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models import QuerySet
-from django.utils import timezone
 
 
 class Post(models.Model):
@@ -20,13 +18,5 @@ class Post(models.Model):
 
         self.save()
 
-    def delete_post(self):
+    def delete_post(self) -> None:
         self.delete()
-
-    @classmethod
-    def get_posts_published_before(cls, date: timezone) -> QuerySet:
-        return cls.objects.filter(publ_time__lt=date)
-
-    @classmethod
-    def get_posts_published_after(cls, date: timezone) -> QuerySet:
-        return cls.objects.filter(publ_time__gte=date)

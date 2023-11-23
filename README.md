@@ -6,3 +6,7 @@ The initial pypostblog commit. I made a post model, a post form, some view and u
 
 Creation and Deletion commit 23.11.2023
 Created a view to create and a view to delete posts. After creation, deletion or updating a post, you get redirected to the post_list page.
+
+Posts list page update commit 23.11.2023
+Updated the posts list, adding a paginator and limiting the number of posts that can be on a page at a given time.
+Added an account app with a user model for authentication.

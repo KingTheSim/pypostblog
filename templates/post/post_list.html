@@ -16,6 +16,34 @@
             <a href="{% url 'delete_post' post.id %}">Delete</a>
         {% endfor %}
 
+        <form method="get" action="{% url 'post_list' %}">
+            <label for="posts_per_page">Posts per page:</label>
+            <select id="posts_per_page" name="posts_per_page">
+                <option value="5" {% if posts_per_page == '5' %}selected{% endif %}}>5</option>
+                <option value="10" {% if posts_per_page == '10' %}selected{% endif %}}>10</option>
+                <option value="25" {% if posts_per_page == '25' %}selected{% endif %}}>25</option>
+                <option value="50" {% if posts_per_page == '50' %}selected{% endif %}}>50</option>
+            </select>
+            <button type="submit">Apply</button>
+        </form>
+
+        <div class="paginator">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href="?page=1&posts_per_page={{ posts_per_page }}">&laquo; first</a>
+                    <a href="?page={{ posts.previous_page_number }}&posts_per_page={{ posts_per_page }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+                </span>
+
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}&posts_per_page={{ posts_per_page }}">next</a>
+                    <a href="?page={{ posts.paginator.num_pages }}&posts_per_page={{ posts_per_page }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
         <a href="{% url 'create_post' %}">Create New Post</a>
     </body>
 </html>
