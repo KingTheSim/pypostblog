@@ -10,3 +10,6 @@ Created a view to create and a view to delete posts. After creation, deletion or
 Posts list page update commit 23.11.2023
 Updated the posts list, adding a paginator and limiting the number of posts that can be on a page at a given time.
 Added an account app with a user model for authentication.
+
+Accounts commit 24.11.2023
+Finished with the account registration for now. I need to work on the front-end a bit.
